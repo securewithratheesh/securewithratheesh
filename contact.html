@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | SecureWithRatheesh</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+SecureWithRatheesh
+</div>
+<div class="menu-toggle">☰</div>
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="awareness.html">Awareness</a></li>
+
+<li><a href="resources.html">Resources</a></li>
+
+<li><a href="community.html">Community</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+</nav>
+
+</header>
+
+<section class="hero" style="min-height:50vh;">
+
+<div class="hero-left">
+
+<h1>Let's Connect</h1>
+
+<h2>Get In Touch</h2>
+
+<p>
+
+Whether you want to discuss cybersecurity,
+ethical hacking, digital awareness, collaborations,
+or simply connect with a fellow learner,
+I'd be happy to hear from you.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Contact Form</h2>
+
+<div class="card" style="max-width:700px;margin:auto;">
+
+<form id="contactForm">
+
+<div class="form-group">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="name"
+name="name"
+placeholder="Enter your name"
+required
+maxlength="50">
+
+</div>
+
+<div class="form-group">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="Enter your phone number"
+required
+maxlength="15">
+
+</div>
+
+<div class="form-group">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Enter your email"
+required
+maxlength="100">
+
+</div>
+
+<div class="form-group">
+
+<label>Message</label>
+
+<textarea
+id="message"
+name="message"
+rows="6"
+placeholder="Write your message..."
+maxlength="1000"
+required></textarea>
+
+</div>
+
+<button
+type="submit"
+class="btn-primary">
+
+Submit
+
+</button>
+
+</form>
+
+<div id="responseMessage"></div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Direct Contact</h2>
+
+<div class="card">
+
+<p>
+📧 Email:
+securewithratheesh@gmail.com
+</p>
+
+<br>
+
+<p>
+📸 Instagram:
+@securewithratheesh
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 SecureWithRatheesh</p>
+
+<p>
+
+<a href="privacy.html">
+
+Privacy Policy
+
+</a>
+
+</p>
+
+</footer>
+
+<script>
+
+/* ==========================================
+   GOOGLE SHEETS INTEGRATION
+========================================== */
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbxcu1Wbvy2WPFVEjOGhgCKHONyDuuVJ52vMik-HgtaFL8CjH_0SLVw-9gHDalTk59Hr/exec";
+
+const form =
+document.getElementById("contactForm");
+
+const response =
+document.getElementById("responseMessage");
+
+form.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+if(!validateForm()){
+return;
+}
+
+const data = {
+
+name:
+document.getElementById("name").value.trim(),
+
+phone:
+document.getElementById("phone").value.trim(),
+
+email:
+document.getElementById("email").value.trim(),
+
+message:
+document.getElementById("message").value.trim()
+
+};
+
+response.innerHTML =
+"Sending...";
+
+try{
+
+const result =
+await fetch(scriptURL,{
+
+method:"POST",
+
+body:JSON.stringify(data)
+
+});
+
+if(result.ok){
+
+response.innerHTML =
+
+"<p style='color:#00e5ff;font-weight:600;'>Thank you! Your information has been submitted successfully.</p>";
+
+form.reset();
+
+}else{
+
+response.innerHTML =
+
+"<p style='color:red;'>Submission failed. Please try again.</p>";
+
+}
+
+}catch(error){
+
+response.innerHTML =
+
+"<p style='color:red;'>Network error. Please try again later.</p>";
+
+}
+
+});
+
+/* ==========================================
+   VALIDATION
+========================================== */
+
+function validateForm(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const phone =
+document.getElementById("phone").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+if(name.length < 3){
+
+alert("Please enter a valid name.");
+
+return false;
+
+}
+
+const phoneRegex =
+/^[0-9]{10}$/;
+
+if(!phoneRegex.test(phone)){
+
+alert("Please enter a valid 10-digit phone number.");
+
+return false;
+
+}
+
+const emailRegex =
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if(!emailRegex.test(email)){
+
+alert("Please enter a valid email address.");
+
+return false;
+
+}
+
+return true;
+
+}
+<button id="topBtn" title="Go to top">
+↑
+</button>
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
