@@ -480,4 +480,144 @@ transition:.3s;
 
 #topBtn:hover{
 transform:translateY(-5px);
+} 
+/* =====================================
+   SECUREWITHRATHEESH RESPONSIVE FIX
+   Add at very end of style.css
+===================================== */
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+@media screen and (max-width:1024px){
+
+    .hero{
+        gap:40px;
+        padding:120px 6%;
+    }
+
+    .hero-left h1{
+        font-size:3rem;
+    }
+
+    .profile-container{
+        width:320px !important;
+        height:320px !important;
+    }
+}
+
+@media screen and (max-width:768px){
+
+    .navbar{
+        padding:15px 20px !important;
+    }
+
+    .logo{
+        font-size:1rem !important;
+        max-width:70%;
+    }
+
+    .hero{
+        flex-direction:column-reverse !important;
+        text-align:center;
+        justify-content:center;
+        min-height:auto;
+        padding:110px 20px 60px !important;
+        gap:30px !important;
+    }
+
+    .hero-left h1{
+        font-size:2.4rem !important;
+        line-height:1.2;
+    }
+
+    .hero-left h2{
+        font-size:1.1rem !important;
+        height:auto !important;
+    }
+
+    .hero-left p{
+        max-width:100% !important;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .profile-container{
+        width:260px !important;
+        height:260px !important;
+        border-width:6px !important;
+    }
+
+    .section,
+    .cta{
+        padding:70px 20px !important;
+    }
+
+    .section h2,
+    .cta h2{
+        font-size:1.9rem !important;
+    }
+
+    .grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .card{
+        padding:20px !important;
+    }
+
+    .nav-links{
+        width:220px;
+    }
+}
+
+@media screen and (max-width:480px){
+
+    .hero{
+        padding-top:95px !important;
+    }
+
+    .hero-left h1{
+        font-size:2rem !important;
+    }
+
+    .hero-left h2{
+        font-size:1rem !important;
+    }
+
+    .hero-left p{
+        font-size:.95rem;
+    }
+
+    .profile-container{
+        width:220px !important;
+        height:220px !important;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+        max-width:280px;
+        text-align:center;
+    }
+
+    .section,
+    .cta{
+        padding:60px 15px !important;
+    }
+
+    .section h2,
+    .cta h2{
+        font-size:1.6rem !important;
+    }
 }
